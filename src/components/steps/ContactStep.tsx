@@ -14,7 +14,7 @@ const schema = z.object({
 });
 
 export const ContactStep = () => {
-  const { formData, nextStep, prevStep, setFormValues } = useOnboarding();
+  const { formData, nextStep, setFormValues } = useOnboarding();
   const { register, handleSubmit, formState: { errors }, watch } = useForm({
     resolver: zodResolver(schema),
     defaultValues: formData,
@@ -22,7 +22,16 @@ export const ContactStep = () => {
 
   const watchedValues = watch();
 
-  const onSubmit = (data: any) => {
+  // Define the shape of the form data
+  interface ContactFormData {
+    email: string;
+    phone: string;
+    location?: string;
+    linkedin?: string;
+    twitter?: string;
+  }
+
+  const onSubmit = (data: ContactFormData) => {
     setFormValues(data);
     nextStep();
   };

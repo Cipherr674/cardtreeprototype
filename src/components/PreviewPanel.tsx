@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import ProfileCard, { ProfileData } from './ProfileCard';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback, useEffect } from 'react';
-import { ClientCarousel } from './ClientCarousel';
+import { useEffect } from 'react';
 
 // Types
 interface PreviewPanelProps {

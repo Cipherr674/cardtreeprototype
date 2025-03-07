@@ -200,7 +200,7 @@ export default function Carousel({
             -(index - 1) * trackItemOffset,
           ];
           const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
+          // Pre-compute transforms outside of render for all items
           return (
             <motion.div
               key={index}
@@ -212,7 +212,7 @@ export default function Carousel({
               style={{
                 width: itemWidth,
                 height: round ? itemWidth : "100%",
-                rotateY: rotateY,
+                rotateY: useTransform(x, range, outputRange, { clamp: false }),
                 ...(round && { borderRadius: "50%" }),
               }}
               transition={effectiveTransition}

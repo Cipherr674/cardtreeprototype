@@ -1,11 +1,20 @@
 import { UseFormRegister, FieldErrors, UseFormHandleSubmit } from 'react-hook-form';
 
+// Define a specific interface for the form values
+interface ContactFormValues {
+  email: string;
+  phone: string;
+  location?: string;
+  linkedin?: string;
+  twitter?: string;
+}
+
 interface ContactFormProps {
-  register: UseFormRegister<any>;
-  errors: FieldErrors<any>;
-  handleSubmit: UseFormHandleSubmit<any>;
-  onSubmit: (data: any) => void;
-  defaultValues?: any;
+  register: UseFormRegister<ContactFormValues>;
+  errors: FieldErrors<ContactFormValues>;
+  handleSubmit: UseFormHandleSubmit<ContactFormValues>;
+  onSubmit: (data: ContactFormValues) => void;
+  defaultValues?: Partial<ContactFormValues>;
 }
 
 export const ContactForm = ({ register, errors, handleSubmit, onSubmit }: ContactFormProps) => {

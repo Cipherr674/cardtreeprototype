@@ -36,6 +36,11 @@ const ProfileCard = ({ userData, showContactInfo = false }: ProfileCardProps) =>
           </h3>
           <p className="text-gray-600 text-[11px]">{userData.title || 'Sales Leader'}</p>
           <p className="text-gray-600 text-[11px] mb-1">{userData.company || 'Carrot Corp'}</p>
+          
+          {/* Show additional contact info if enabled */}
+          {showContactInfo && userData.location && (
+            <p className="text-gray-600 text-[10px]">{userData.location}</p>
+          )}
         </div>
         
         {/* Carrot icon with blue background */}

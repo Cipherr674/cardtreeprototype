@@ -25,7 +25,17 @@ export const BioStep = () => {
 
   const watchedValues = watch();
 
-  const onSubmit = (data: any) => {
+  // Define the shape of the form data
+  interface BioFormData {
+    firstName: string;
+    lastName: string;
+    title: string;
+    company: string;
+    location?: string;
+    bio?: string;
+  }
+
+  const onSubmit = (data: BioFormData) => {
     setFormValues(data);
     nextStep();
   };

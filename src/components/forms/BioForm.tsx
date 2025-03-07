@@ -1,12 +1,22 @@
 import { UseFormRegister, FieldErrors, UseFormHandleSubmit } from 'react-hook-form';
 import { SearchIcon } from '../../icons/search-icon';
 
+// Define a specific interface for the form values
+interface BioFormValues {
+  firstName: string;
+  lastName: string;
+  title: string;
+  company: string;
+  location?: string;
+  bio?: string;
+}
+
 interface BioFormProps {
-  register: UseFormRegister<any>;
-  errors: FieldErrors<any>;
-  handleSubmit: UseFormHandleSubmit<any>;
-  onSubmit: (data: any) => void;
-  defaultValues?: any;
+  register: UseFormRegister<BioFormValues>;
+  errors: FieldErrors<BioFormValues>;
+  handleSubmit: UseFormHandleSubmit<BioFormValues>;
+  onSubmit: (data: BioFormValues) => void;
+  defaultValues?: Partial<BioFormValues>;
 }
 
 export const BioForm = ({ register, errors, handleSubmit, onSubmit }: BioFormProps) => {
@@ -14,7 +24,7 @@ export const BioForm = ({ register, errors, handleSubmit, onSubmit }: BioFormPro
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 w-full max-w-[480px] px-4 sm:px-0">
       <div className="mb-4">
         <h1 className="text-2xl sm:text-[28px] font-bold mb-1 text-gray-900">Bio hero details</h1>
-        <p className="text-sm text-gray-500">We'll use this info to build your page.</p>
+        <p className="text-sm text-gray-500">We&apos;ll use this info to build your page.</p>
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

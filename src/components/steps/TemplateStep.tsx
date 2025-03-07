@@ -1,6 +1,5 @@
 import { useOnboarding } from '../../contexts/onboarding-context';
 import Image from 'next/image';
-import { ProgressSteps } from '../ProgressSteps';
 
 const templates = [
   {
@@ -30,7 +29,7 @@ const templates = [
 ];
 
 export const TemplateStep = () => {
-  const { formData, setFormValues, nextStep, prevStep } = useOnboarding();
+  const { setFormValues, nextStep } = useOnboarding();
 
   const handleSelect = (templateId: string) => {
     setFormValues({ template: templateId });
