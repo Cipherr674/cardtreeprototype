@@ -9,8 +9,13 @@ import { ProgressSteps } from '../ProgressSteps';
 
 // Define schema
 const schema = z.object({
-  email: z.string().email('Invalid email address'),
-  phone: z.string().optional(),
+  email: z.string()
+    .min(1, 'Email is required')
+    .email('Please enter a valid email address (e.g., name@example.com)'),
+  phone: z.string()
+    .min(1, 'Phone number is required')
+    .regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 
+      'Please enter a valid phone number (e.g., 123-456-7890)'),
 });
 
 export const ContactStep = () => {

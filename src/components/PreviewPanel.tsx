@@ -145,7 +145,7 @@ const DomainExpertiseCard = () => {
                     <path d="M12 17a2 2 0 100-4 2 2 0 000 4z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 )}
-              </div>
+          </div>
               <p className="text-gray-900 text-[10px] text-center">
                 {domain.name === "Cloud communication" ? (
                   <>
@@ -155,12 +155,12 @@ const DomainExpertiseCard = () => {
                   domain.name
                 )}
               </p>
-            </div>
-          ))}
         </div>
-      </div>
+      ))}
+        </div>
     </div>
-  );
+  </div>
+);
 };
 
 const TechStackCard = () => {
@@ -205,7 +205,7 @@ const TechStackCard = () => {
             {techStacks.map((tech, index) => (
               <div key={`second-${index}`} className="flex flex-col items-center">
                 <div className="w-[60px] h-[60px] flex items-center justify-center bg-white rounded-lg border border-gray-100 p-3 mb-1">
-                  <Image 
+            <Image 
                     src={`/images/${tech.icon}`} 
                     alt={tech.name} 
                     width={35} 
@@ -343,7 +343,7 @@ export const PreviewPanel = ({ userData, contactData, showContactInfo = false }:
     <div className="overflow-hidden flex flex-col gap-3 rounded-xl w-full">
       {/* Profile Card Section */}
       <div className="p-3 sm:p-5">
-        <ProfileCard userData={mergedData} showContactInfo={showContactInfo} />
+      <ProfileCard userData={mergedData} showContactInfo={showContactInfo} />
       </div>
       
       {/* Client Logos Section */}
@@ -360,17 +360,17 @@ export const PreviewPanel = ({ userData, contactData, showContactInfo = false }:
       <div className="px-3 sm:px-5 pb-4 sm:pb-5 w-full">
         {/* First row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <BrochureCard />
-          <DomainExpertiseCard />
+        <BrochureCard />
+        <DomainExpertiseCard />
         </div>
         
         {/* Second row - Tech Stack takes 4/12, Video+Calendar takes 8/12 */}
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
           <div className="sm:col-span-4">
-            <TechStackCard />
+        <TechStackCard />
           </div>
           <div className="sm:col-span-8 grid grid-cols-2 gap-4">
-            <VideoCard />
+        <VideoCard />
             <CalendarCard />
           </div>
         </div>
